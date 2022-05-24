@@ -1,0 +1,28 @@
+{
+  "name": "round-report-v2-backend",
+  "version": "1.0.0",
+  "description": "Redesign of Round Report Backend",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brett-treweek/round-report-v2-backend.git"
+  },
+  "author": "brett treweek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brett-treweek/round-report-v2-backend/issues"
+  },
+  "homepage": "https://github.com/brett-treweek/round-report-v2-backend#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.4"
+  }
+}
