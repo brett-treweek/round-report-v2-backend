@@ -30,23 +30,36 @@ const register = async (req, res, next) => {
 const login = async (req, res) => {
 	const { email, password } = req.body;
 	if (!email || !password) {
-		throw new BadRequestError('Please provide all values')
+		throw new BadRequestError('Please provide all values');
 	}
 	const user = await User.findOne({ email }).select('+password');
 	if (!user) {
-		throw new UnauthenticatedError('Invalid Credentials')
+		throw new UnauthenticatedError('Invalid Credentials');
 	}
-	const isPasswordCorrect = await user.comparePassword(password)
+	const isPasswordCorrect = await user.comparePassword(password);
 	if (!isPasswordCorrect) {
-		throw new UnauthenticatedError('Invalid Credentials')
+		throw new UnauthenticatedError('Invalid Credentials');
 	}
-	const token = user.createJWT()
+	const token = user.createJWT();
 	user.password = undefined;
-	res.status(StatusCodes.OK).json({user,token});
+	res.status(StatusCodes.OK).json({ user, token });
 };
 
 const updateUser = async (req, res) => {
-	res.send('update user');
+	const { email, name, round } = req.body;
+	if (!email || !name || !round) {
+		throw new BadRequestError('Please provide all values');
+	}
+	const user = await User.findOne({ _id: req.user.userId });
+
+	user.email = email;
+	user.name = name;
+	user.round = round;
+
+	await user.save();
+	const token = user.createJWT();
+
+	res.status(StatusCodes.OK).json({ user, token });
 };
 
 export { register, login, updateUser };
