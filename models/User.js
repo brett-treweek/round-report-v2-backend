@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 import validator from 'validator';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
-dotenv.config();
+// import dotenv from 'dotenv';
+// dotenv.config();
 
 const UserSchema = new mongoose.Schema(
 	{
@@ -29,6 +29,12 @@ const UserSchema = new mongoose.Schema(
 			minlength: 6,
 			select: false,
 		},
+		lastName: {
+			type: String,
+			minlength: 3,
+			maxlength: 20,
+			trim: true,
+		},
 		admin: {
 			type: Boolean,
 			default: false,
@@ -38,7 +44,12 @@ const UserSchema = new mongoose.Schema(
 			type: Number,
 			default: null,
 		},
-		hazards: [],
+		hazards: [
+			{
+				type: mongoose.Types.ObjectId,
+				ref: "Hazard",
+			},
+		],
 	},
 	{ timestamps: true }
 );
