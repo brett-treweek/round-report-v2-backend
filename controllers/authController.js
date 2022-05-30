@@ -33,7 +33,7 @@ const login = async (req, res) => {
 	if (!email || !password) {
 		throw new BadRequestError('Please provide all values');
 	}
-	const user = await User.findOne({ email }).select('+password');
+	const user = await User.findOne({ email }).select('+password').select("+role");
 	if (!user) {
 		throw new UnauthenticatedError('Invalid Credentials');
 	}
@@ -43,6 +43,7 @@ const login = async (req, res) => {
 	}
 	const token = user.createJWT();
 	user.password = undefined;
+	user.role = undefined;
 	res.status(StatusCodes.OK).json({ user, token });
 };
 
@@ -58,6 +59,7 @@ const updateUser = async (req, res) => {
 	user.round = round;
 	user.lastName = lastName;
 
+	// salt password only if editing password
 	await user.save();
 	const token = user.createJWT();
 

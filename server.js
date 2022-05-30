@@ -34,7 +34,7 @@ app.use('/api/v1/hazards',authenticateUser, hazardsRouter);
 app.use(notFoundMiddleware);
 // handling errors in routes
 app.use(errorHandlerMiddleware);
-console.log('hello');
+// console.log('hello');
 const port = process.env.PORT || 5000;
 
 const start = async () => {

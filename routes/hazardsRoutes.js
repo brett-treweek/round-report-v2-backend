@@ -1,5 +1,7 @@
 import express from 'express'
 const router = express.Router()
+import verifyRole from '../middleware/verifyRole.js';
+
 
 import {
 	createHazard,

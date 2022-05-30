@@ -35,9 +35,9 @@ const UserSchema = new mongoose.Schema(
 			maxlength: 20,
 			trim: true,
 		},
-		admin: {
-			type: Boolean,
-			default: false,
+		role: {
+			type: Number,
+			default: 1982,
 			select: false,
 		},
 		round: {
@@ -47,13 +47,14 @@ const UserSchema = new mongoose.Schema(
 		hazards: [
 			{
 				type: mongoose.Types.ObjectId,
-				ref: "Hazard",
+				ref: 'Hazard',
 			},
 		],
 	},
 	{ timestamps: true }
 );
 
+// Middleware to salt and hash password only if password is modified
 UserSchema.pre('save', async function () {
 	if (!this.isModified('password')) return;
 
@@ -61,11 +62,32 @@ UserSchema.pre('save', async function () {
 	this.password = await bcrypt.hash(this.password, salt);
 });
 
+// Function to create JWT - uses .env secret and token expiry variables.
+
+// This is where I will add roles information that will be checked in auth.js.
+
 UserSchema.methods.createJWT = function () {
-	return jwt.sign({ userId: this._id }, process.env.JWT_SECRET, {
-		expiresIn: process.env.JWT_LIFETIME,
-	});
+const role = this.role
+console.log('Role!!!',role);
+	return jwt.sign(
+		{
+			UserInfo: {
+				userId: this._id,
+				role: this.role
+			}
+		},
+		process.env.JWT_SECRET,
+		{
+			expiresIn: process.env.JWT_LIFETIME,
+		}
+	);
 };
+
+// UserSchema.methods.createJWT = function () {
+// 	return jwt.sign({ userId: this._id }, process.env.JWT_SECRET, {
+// 		expiresIn: process.env.JWT_LIFETIME,
+// 	});
+// };
 
 UserSchema.methods.comparePassword = async function (candidatePassword) {
 	const isMatch = await bcrypt.compare(candidatePassword, this.password);
