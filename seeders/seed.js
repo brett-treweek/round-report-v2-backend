@@ -15,11 +15,13 @@ const start = async () => {
 	const rnd = await Round.insertMany(roundData);
 	const haz = await Hazard.insertMany(hazardData);
 
+	// Create test user Mia
 	const user = await User.create({
 		name: 'Mia',
 		email: 'mia@mail.com',
 		role: 1982,
 		password: 'qwerty',
+		hazards: []
 	});
 
 	// populating rounds with hazards and createdBy Mia
@@ -28,6 +30,7 @@ const start = async () => {
 		haz.forEach((haz) => {
 			if (round.roundNumber === haz.hazardRound) {
 				round.hazards.push(haz);
+				user.hazards.push(haz._id);
 				round.createdBy = user._id;
 			}
 		});
@@ -48,6 +51,10 @@ const start = async () => {
 	});
 	await Hazard.deleteMany({});
 	await Hazard.insertMany(haz);
+
+	// update Mia with all hazards added to her hazard array
+	await User.findByIdAndUpdate(user._id, user);
+
 
 	console.log('Rounds and Hazards seeded!!!');
 	process.exit(0);
