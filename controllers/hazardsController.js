@@ -1,4 +1,5 @@
 import Hazard from '../models/Hazard.js'
+import User from '../models/User.js'
 import { StatusCodes } from 'http-status-codes'
 import { BadRequestError, UnauthenticatedError } from '../errors/index.js';
 
@@ -7,8 +8,16 @@ const createHazard = async (req, res) => {
    if (!hazardRound || !hazardType || !hazardAddress) {
        throw new BadRequestError('Please provide required values')
    }
-   req.body.createdBy = req.user.userId
-   const hazard = await Hazard.create(req.body)
+
+//   TODO Add hazard to round
+req.body.createdBy = req.user.userId
+const hazard = await Hazard.create(req.body)
+console.log('hazard id!', hazard);
+//    Add hazard to user
+   await User.findOneAndUpdate(
+		{ _id: req.user.userId },
+		{ $push: { hazards: hazard._id } }
+   );
    res.status(StatusCodes.CREATED).json({hazard})
 }
 const deleteHazard = async (req, res) => {

@@ -30,10 +30,16 @@ const HazardSchema = new mongoose.Schema(
 			},
 			required: true,
 		},
+		message: {
+			type: String,
+		},
 		hazardAddress: {
 			type: String,
 			required: true,
 			maxlength: 100,
+		},
+		suburb: {
+			type: String,
 		},
 		// lat: {
 		// 	type: Number,
@@ -46,7 +52,7 @@ const HazardSchema = new mongoose.Schema(
 		createdBy: {
 			type: mongoose.Types.ObjectId,
 			ref: 'User',
-            required: [true, 'Please provide user']
+			// required: [true, 'Please provide user'],
 		},
 	},
 	{ timestamps: true }

@@ -1,6 +1,7 @@
 import express from 'express'
 const router = express.Router()
 import verifyRole from '../middleware/verifyRole.js';
+import authenticateUser from '../middleware/auth.js';
 
 
 import {
@@ -10,8 +11,8 @@ import {
 	getAllHazards,
 } from '../controllers/hazardsController.js';
 
-router.route('/').post(createHazard).get(getAllHazards)
-router.route('/:id').delete(deleteHazard).patch(updateHazard)
+router.route('/').post(authenticateUser, createHazard).get(getAllHazards)
+router.route('/:id').delete(authenticateUser,deleteHazard).patch(authenticateUser,updateHazard)
 
 
 export default router;

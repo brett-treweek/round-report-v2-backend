@@ -11,11 +11,13 @@ import connectDb from './db/connect.js';
 // Routers
 import authRouter from './routes/authRoutes.js';
 import hazardsRouter from './routes/hazardsRoutes.js';
+import adminRouter from './routes/adminRoutes.js';
 
 // Middleware
 import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
 import authenticateUser from './middleware/auth.js';
+import verifyRole from './middleware/verifyRole.js';
 
 
 if (process.env.NODE_ENV !== 'production') {
@@ -29,7 +31,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/hazards',authenticateUser, hazardsRouter);
+app.use('/api/v1/admin',authenticateUser, adminRouter);
+app.use('/api/v1/hazards', hazardsRouter);
 // handling unfound routes
 app.use(notFoundMiddleware);
 // handling errors in routes

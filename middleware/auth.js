@@ -5,18 +5,17 @@ import jwt from 'jsonwebtoken';
 const auth = async (req, res, next) => {
     // authorization could be capitilized or not
 	const authHeader = req.headers.authorization || req.headers.Authorization;
-	// console.log('Auth Header!!!', authHeader);
 	if (!authHeader || !authHeader.startsWith('Bearer ')) {
 		throw new UnauthenticatedError('Authentication Invalid');
 	}
     // remove 'Bearer'
 	const token = authHeader.split(' ')[1];
-	// console.log('Token!!!', token);
+// Need to put expiration in jwt.verify()
 	try {
 		const payload = jwt.verify(token, process.env.JWT_SECRET);
 		req.user = { userId: payload.UserInfo.userId };
 		req.role = { userRole: payload.UserInfo.role };
-		console.log('Payload from auth.js!!!',payload);
+		console.log('req with decoded jwt additions',req.user,req.role);
 		next();
 	} catch (error) {
 		throw new UnauthenticatedError('Authentication Invalid');

@@ -37,7 +37,7 @@ const UserSchema = new mongoose.Schema(
 		},
 		role: {
 			type: Number,
-			default: 1982,
+			default: 1991,
 			select: false,
 		},
 		round: {
@@ -67,14 +67,14 @@ UserSchema.pre('save', async function () {
 // This is where I will add roles information that will be checked in auth.js.
 
 UserSchema.methods.createJWT = function () {
-const role = this.role
-console.log('Role!!!',role);
+	const role = this.role;
+	console.log('Role!!!', role);
 	return jwt.sign(
 		{
 			UserInfo: {
 				userId: this._id,
-				role: this.role
-			}
+				role: this.role,
+			},
 		},
 		process.env.JWT_SECRET,
 		{
