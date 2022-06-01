@@ -5,6 +5,7 @@ const roundData = [
 		"suburb": "Applecross",
 		"hazards": [],
 		"lpo": "Applecross Village Newsagency, shop 1/35 Ardross St, Applecross WA 6153",
+		"relay": "Applecross Village Newsagency, shop 1/35 Ardross St, Applecross WA 6153",
 		// "lat": -32.0104,
 		// "lng": 115.83433
 	},
@@ -14,6 +15,7 @@ const roundData = [
 		"suburb": "Mount Pleasant",
 		"hazards": [],
 		"lpo": "902 Canning Hwy, Applecross WA 6153",
+		"relay": "902 Canning Hwy, Applecross WA 6153",
 		// "lat": -32.0124,
 		// "lng": 115.849
 	},
@@ -23,6 +25,7 @@ const roundData = [
 		"suburb": "Booragoon",
 		"hazards": [],
 		"lpo": "10/67 McCoy St, Myaree WA 6154",
+		"relay": "10/67 McCoy St, Myaree WA 6154",
 		// "lat": -32.04389,
 		// "lng": 115.81795
 	},
@@ -32,6 +35,7 @@ const roundData = [
 		"suburb": "Alfred Cove",
 		"hazards": [],
 		"lpo": "shop 3/67 N Lake Rd, Myaree WA 6154",
+		"relay": "shop 3/67 N Lake Rd, Myaree WA 6154",
 		// "lat": -32.03865,
 		// "lng": 115.81479
 	},
@@ -41,6 +45,7 @@ const roundData = [
 		"suburb": "Melville",
 		"hazards": [],
 		"lpo": "Shop 1/68 Leach Hwy, Melville WA 6156",
+		"relay": "Shop 1/68 Leach Hwy, Melville WA 6156",
 		// "lat": -32.04825,
 		// "lng": 115.79445
 	},
@@ -50,6 +55,7 @@ const roundData = [
 		"suburb": "Bicton",
 		"hazards": [],
 		"lpo": "Melville Plaza Shopping Centre, shop 2/380 Canning Hwy, Bicton WA 6157",
+		"relay": "Melville Plaza Shopping Centre, shop 2/380 Canning Hwy, Bicton WA 6157",
 		// "lat": -32.034046,
 		// "lng": 115.790915
 	},
@@ -59,6 +65,7 @@ const roundData = [
 		"suburb": "East Fremantle",
 		"hazards": [],
 		"lpo": "Stammers Shopping Centre, shop 6/265-277 Canning Hwy, Palmyra WA 6157",
+		"relay": "Stammers Shopping Centre, shop 6/265-277 Canning Hwy, Palmyra WA 6157",
 		// "lat": -32.038257,
 		// "lng": 115.77739
 	},
@@ -68,6 +75,7 @@ const roundData = [
 		"suburb": "Palmyra",
 		"hazards": [],
 		"lpo": "Stammers Shopping Centre, shop 6/265-277 Canning Hwy, Palmyra WA 6157",
+		"relay": "Stammers Shopping Centre, shop 6/265-277 Canning Hwy, Palmyra WA 6157",
 		// "lat": -32.038257,
 		// "lng": 115.77739
 	},
@@ -77,6 +85,7 @@ const roundData = [
 		"suburb": "Fremantle",
 		"hazards": [],
 		"lpo": "1/13 Market St, Fremantle WA 6160",
+		"relay": "1/13 Market St, Fremantle WA 6160",
 		// "lat": -32.053426,
 		// "lng": 115.745743
 	},
@@ -86,6 +95,7 @@ const roundData = [
 		"suburb": "Winthrop",
 		"hazards": [],
 		"lpo": "Winthrop Shopping Centre, shop 8/109-141 Somerville Blvd, Winthrop WA 6150",
+		"relay": "Winthrop Shopping Centre, shop 8/109-141 Somerville Blvd, Winthrop WA 6150",
 		// "lat": -32.058377,
 		// "lng": 115.831557
 	}

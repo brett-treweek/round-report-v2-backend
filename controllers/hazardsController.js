@@ -10,6 +10,10 @@ const createHazard = async (req, res) => {
    }
 
 //   TODO Add hazard to round
+//   TODO Update user state
+
+const {name} = await User.findById(req.user.userId)
+req.body.createdByUsername = name
 req.body.createdBy = req.user.userId
 const hazard = await Hazard.create(req.body)
 console.log('hazard id!', hazard);
@@ -20,14 +24,20 @@ console.log('hazard id!', hazard);
    );
    res.status(StatusCodes.CREATED).json({hazard})
 }
+
 const deleteHazard = async (req, res) => {
     res.send('delete hazard')
 }
+
+
 const updateHazard = async (req, res) => {
     res.send('update hazard')
 }
+
 const getAllHazards = async (req, res) => {
-    res.send('get all hazards')
+    const hazards = await Hazard.find()
+    const totalHazards = hazards.length
+    res.status(StatusCodes.OK).json({ hazards, totalHazards });
 }
 
 export { createHazard, deleteHazard, updateHazard, getAllHazards }

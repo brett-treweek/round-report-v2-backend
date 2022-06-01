@@ -28,6 +28,8 @@ const register = async (req, res, next) => {
 	});
 };
 
+// Need to fetch user hazards and return them in the res
+// const userHazards = Hazard.find({createdBy: user._Id})
 const login = async (req, res) => {
 	const { email, password } = req.body;
 	if (!email || !password) {

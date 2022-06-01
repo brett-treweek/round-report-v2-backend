@@ -11,6 +11,7 @@ import connectDb from './db/connect.js';
 // Routers
 import authRouter from './routes/authRoutes.js';
 import hazardsRouter from './routes/hazardsRoutes.js';
+import roundsRouter from './routes/roundsRoutes.js';
 import adminRouter from './routes/adminRoutes.js';
 
 // Middleware
@@ -33,6 +34,7 @@ app.get('/', (req, res) => {
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/admin',authenticateUser, adminRouter);
 app.use('/api/v1/hazards', hazardsRouter);
+app.use('/api/v1/round', roundsRouter);
 // handling unfound routes
 app.use(notFoundMiddleware);
 // handling errors in routes

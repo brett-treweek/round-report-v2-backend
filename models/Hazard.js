@@ -41,6 +41,16 @@ const HazardSchema = new mongoose.Schema(
 		suburb: {
 			type: String,
 		},
+		active: {
+			type: Boolean,
+			default: true,
+			required: true,
+		},
+		resolved: {
+			type: Boolean,
+			default: false,
+			required: true,
+		},
 		// lat: {
 		// 	type: Number,
 		// 	required: true,
@@ -54,6 +64,9 @@ const HazardSchema = new mongoose.Schema(
 			ref: 'User',
 			// required: [true, 'Please provide user'],
 		},
+		createdByUsername: {
+			type: String
+		}
 	},
 	{ timestamps: true }
 );
