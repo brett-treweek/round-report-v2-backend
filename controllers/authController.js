@@ -1,4 +1,5 @@
 import User from '../models/User.js';
+import Hazard from '../models/Hazard.js';
 import { StatusCodes } from 'http-status-codes';
 import { BadRequestError, UnauthenticatedError } from '../errors/index.js';
 
@@ -29,21 +30,32 @@ const register = async (req, res, next) => {
 };
 
 // Need to fetch user hazards and return them in the res
-// const userHazards = Hazard.find({createdBy: user._Id})
+
 const login = async (req, res) => {
+	// Checking to make sure email and password are given.
 	const { email, password } = req.body;
 	if (!email || !password) {
 		throw new BadRequestError('Please provide all values');
 	}
-	const user = await User.findOne({ email }).select('+password').select("+role");
+
+	// Getting user from database. Including password and role.
+	const user = await User.findOne({ email })
+		.select('+password')
+		.select('+role');
 	if (!user) {
 		throw new UnauthenticatedError('Invalid Credentials');
 	}
+
+	// Checking password is correct with User method comparePassword()
 	const isPasswordCorrect = await user.comparePassword(password);
 	if (!isPasswordCorrect) {
 		throw new UnauthenticatedError('Invalid Credentials');
 	}
-	console.log('User!!!', user);
+
+	// Getting users hazards and setting them in user object.
+	const userHazards = await Hazard.find({ _id: user.hazards });
+	user.hazards = userHazards;
+	// Creating new jwt and setting password and role as undefined for the response- for security.
 	const token = user.createJWT();
 	user.password = undefined;
 	user.role = undefined;
@@ -62,7 +74,7 @@ const updateUser = async (req, res) => {
 	user.round = round;
 	user.lastName = lastName;
 
-	// salt password only if editing password
+	// salt password only if editing password in presave method on user model.
 	await user.save();
 	const token = user.createJWT();
 
