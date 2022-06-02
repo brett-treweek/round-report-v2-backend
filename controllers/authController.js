@@ -74,6 +74,10 @@ const updateUser = async (req, res) => {
 	user.round = round;
 	user.lastName = lastName;
 
+	// Getting users hazards and setting them in user object.
+	const userHazards = await Hazard.find({ _id: user.hazards });
+	user.hazards = userHazards;
+
 	// salt password only if editing password in presave method on user model.
 	await user.save();
 	const token = user.createJWT();
