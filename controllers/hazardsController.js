@@ -6,7 +6,7 @@ import { BadRequestError, UnauthenticatedError } from '../errors/index.js';
 
 // TODO: add Suburb, Message feilds to new hazards.
 const createHazard = async (req, res) => {
-	const { hazardRound, hazardType, hazardAddress } = req.body;
+	const { hazardRound, hazardType, hazardAddress, hazardUrl } = req.body;
 
 	if (!hazardRound || !hazardType || !hazardAddress) {
 		throw new BadRequestError('Please provide required values');

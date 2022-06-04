@@ -51,6 +51,9 @@ const HazardSchema = new mongoose.Schema(
 			default: false,
 			required: true,
 		},
+		imageUrl: {
+			type: String,
+		},
 		// lat: {
 		// 	type: Number,
 		// 	required: true,
