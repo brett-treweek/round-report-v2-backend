@@ -1,71 +1,86 @@
 const hazardData = [
 	{
-		"hazardRound": 1,
-		"roundId": null,
-		"imageUrl": "round-report/ceegukbq8hqlihfophfd",
-		"hazardType": "Aggressive Dog",
-		"message": "Cerberus is loose",
-		"hazardAddress": "6/79 Macleod Road, Applecross WA",
-		"suburb": "Applecross",
-		"createdByUsername": "Mia",
-		"active": true,
-		"resolved": false
+		hazardRound: 1,
+		roundId: null,
+		imageUrl: 'round-report/ceegukbq8hqlihfophfd',
+		hazardType: 'Aggressive Dog',
+		message: 'Cerberus is loose',
+		hazardAddress: {
+			address: '6/79 Macleod Road, Applecross WA',
+			latlng: { lat: -32.01927, lng: 115.83214 },
+		},
+		suburb: 'Applecross',
+		createdByUsername: 'Mia',
+		active: true,
+		resolved: false,
 		// "lat": -32.01927,
 		// "lng": 115.83214
 	},
 	{
-		"hazardRound": 1,
-		"roundId": null,
-		"imageUrl": "round-report/ceegukbq8hqlihfophfd",
-		"hazardType": "Blind Driveway",
-		"message": "Watch out",
-		"hazardAddress": "6/79 Macleod Road, Applecross WA",
-		"suburb": "Applecross",
-		"createdByUsername": "Mia",
-		"active": true,
-		"resolved": false
+		hazardRound: 1,
+		roundId: null,
+		imageUrl: 'round-report/ceegukbq8hqlihfophfd',
+		hazardType: 'Blind Driveway',
+		message: 'Watch out',
+		hazardAddress: {
+			address: '6/79 Macleod Road, Applecross WA',
+			latlng: { lat: -32.01927, lng: 115.83214 },
+		},
+		suburb: 'Applecross',
+		createdByUsername: 'Mia',
+		active: true,
+		resolved: false,
 		// "lat": -32.01927,
 		// "lng": 115.83214
 	},
 	{
-		"hazardRound": 2,
-		"roundId": null,
-		"imageUrl": "round-report/ceegukbq8hqlihfophfd",
-		"hazardType": "Other",
-		"message": "here kitty, kitty",
-		"hazardAddress": "105 Reynolds Rd, Mount Pleasant WA 6153",
-		"suburb": "Mount Pleasant",
-		"createdByUsername": "Mia",
-		"active": true,
-		"resolved": false
+		hazardRound: 2,
+		roundId: null,
+		imageUrl: 'round-report/ceegukbq8hqlihfophfd',
+		hazardType: 'Other',
+		message: 'here kitty, kitty',
+		hazardAddress: {
+			address: '105 Reynolds Rd, Mount Pleasant WA 6153',
+			latlng: { lat: -32.02351, lng: 115.84792 },
+		},
+		suburb: 'Mount Pleasant',
+		createdByUsername: 'Mia',
+		active: true,
+		resolved: false,
 		// "lat": -32.02351,
 		// "lng": 115.84792
 	},
 	{
-		"hazardRound": 3,
-		"roundId": null,
-		"imageUrl": "round-report/ceegukbq8hqlihfophfd",
-		"hazardType": "Blind Driveway",
-		"message": "watch out for crazy driver",
-		"hazardAddress": "176 Riseley St, Booragoon WA 6154",
-		"suburb": "Booragoon",
-		"createdByUsername": "Mia",
-		"active": true,
-		"resolved": false
+		hazardRound: 3,
+		roundId: null,
+		imageUrl: 'round-report/ceegukbq8hqlihfophfd',
+		hazardType: 'Blind Driveway',
+		message: 'watch out for crazy driver',
+		hazardAddress: {
+			address: '176 Riseley St, Booragoon WA 6154',
+			latlng: { lat: -32.03732, lng: 115.8383 },
+		},
+		suburb: 'Booragoon',
+		createdByUsername: 'Mia',
+		active: true,
+		resolved: false,
 		// "lat": -32.03732,
 		// "lng": 115.8383
 	},
 	{
-		"hazardRound": 4,
-		"roundId": null,
-		"imageUrl": "round-report/ceegukbq8hqlihfophfd",
-		"hazardType": "Aggressive Human",
-		"message": "death from above",
-		"hazardAddress": "81 Lamond St, Alfred Cove WA 6154",
-		"suburb": "Alfred Cove",
-		"createdByUsername": "Mia",
-		"active": true,
-		"resolved": false
+		hazardRound: 4,
+		roundId: null,
+		imageUrl: 'round-report/ceegukbq8hqlihfophfd',
+		hazardType: 'Aggressive Human',
+		message: 'death from above',
+		hazardAddress: {
+			address: '81 Lamond St, Alfred Cove WA 6154',
+			latlng: { lat: -32.03503, lng: 115.8145 },
+		},
+		suburb: 'Alfred Cove',
+		createdByUsername: 'Mia',
+		active: true,
+		resolved: false,
 		// "lat": -32.03503,
 		// "lng": 115.8145
 	},
@@ -153,6 +168,6 @@ const hazardData = [
 	// 	// "lat": -32.03783,
 	// 	// "lng": 115.80175
 	// }
-]
+];
 
 export default hazardData

@@ -22,33 +22,39 @@ const RoundSchema = new mongoose.Schema(
 			address: {
 				type: String,
 			},
-			lat: {
-				type: Number,
-			},
-			lng: {
-				type: Number,
+			latlng: {
+				lat: {
+					type: Number,
+				},
+				lng: {
+					type: Number,
+				},
 			},
 		},
 		lpo: {
 			address: {
 				type: String,
 			},
-			lat: {
-				type: Number,
-			},
-			lng: {
-				type: Number,
+			latlng: {
+				lat: {
+					type: Number,
+				},
+				lng: {
+					type: Number,
+				},
 			},
 		},
 		relay: {
 			address: {
 				type: String,
 			},
-			lat: {
-				type: Number,
-			},
-			lng: {
-				type: Number,
+			latlng: {
+				lat: {
+					type: Number,
+				},
+				lng: {
+					type: Number,
+				},
 			},
 		},
 		// lpo: {

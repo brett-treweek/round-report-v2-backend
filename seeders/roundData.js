@@ -3,20 +3,26 @@ const roundData = [
 		roundNumber: 1,
 		startAddress: {
 			address: '16 Moreau Mews, Applecross WA 6153',
-			lat: -32.0104,
-			lng: 115.83433,
+			latlng: {
+				lat: -32.0104,
+				lng: 115.83433,
+			},
 		},
 		lpo: {
 			address:
 				'Applecross Village Newsagency, shop 1/35 Ardross St, Applecross WA 6153',
-			lat: -32.0104,
-			lng: 115.83433,
+			latlng: {
+				lat: -32.0104,
+				lng: 115.83433,
+			},
 		},
 		relay: {
 			address:
 				'Applecross Village Newsagency, shop 1/35 Ardross St, Applecross WA 6153',
-			lat: -32.0104,
-			lng: 115.83433,
+			latlng: {
+				lat: -32.0104,
+				lng: 115.83433,
+			},
 		},
 		suburb: 'Applecross',
 		hazards: [],
@@ -25,18 +31,24 @@ const roundData = [
 		roundNumber: 2,
 		startAddress: {
 			address: '6 David St, Mount Pleasant WA 6153',
-			lat: -32.0124,
-			lng: 115.849,
+			latlng: {
+				lat: -32.0124,
+				lng: 115.849,
+			},
 		},
 		lpo: {
 			address: '902 Canning Hwy, Applecross WA 6153',
-			lat: -32.0104,
-			lng: 115.83433,
+			latlng: {
+				lat: -32.0104,
+				lng: 115.83433,
+			},
 		},
 		relay: {
 			address: '902 Canning Hwy, Applecross WA 6153',
-			lat: -32.0104,
-			lng: 115.83433,
+			latlng: {
+				lat: -32.0104,
+				lng: 115.83433,
+			},
 		},
 		suburb: 'Mount Pleasant',
 		hazards: [],
@@ -47,18 +59,24 @@ const roundData = [
 		roundNumber: 3,
 		startAddress: {
 			address: '4 Davenport Rd, Booragoon WA 6154',
-			lat: -32.04389,
-			lng: 115.81795,
+			latlng: {
+				lat: -32.04389,
+				lng: 115.81795,
+			},
 		},
 		lpo: {
 			address: '10/67 McCoy St, Myaree WA 6154',
-			lat: -32.04389,
-			lng: 115.81795,
+			latlng: {
+				lat: -32.04389,
+				lng: 115.81795,
+			},
 		},
 		relay: {
 			address: '10/67 McCoy St, Myaree WA 6154',
-			lat: -32.04389,
-			lng: 115.81795,
+			latlng: {
+				lat: -32.04389,
+				lng: 115.81795,
+			},
 		},
 		suburb: 'Booragoon',
 		hazards: [],
@@ -69,18 +87,24 @@ const roundData = [
 		roundNumber: 4,
 		startAddress: {
 			address: '3 Davy St, Alfred Cove WA 6154',
-			lat: -32.03865,
-			lng: 115.81479,
+			latlng: {
+				lat: -32.03865,
+				lng: 115.81479,
+			},
 		},
 		lpo: {
 			address: 'shop 3/67 N Lake Rd, Myaree WA 6154',
-			lat: -32.03865,
-			lng: 115.81479,
+			latlng: {
+				lat: -32.03865,
+				lng: 115.81479,
+			},
 		},
 		relay: {
 			address: 'shop 3/67 N Lake Rd, Myaree WA 6154',
-			lat: -32.03865,
-			lng: 115.81479,
+			latlng: {
+				lat: -32.03865,
+				lng: 115.81479,
+			},
 		},
 		suburb: 'Alfred Cove',
 		hazards: [],
@@ -239,4 +263,4 @@ const roundData = [
 	// },
 ];
 
-export default roundData
+export default roundData;
