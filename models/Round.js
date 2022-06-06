@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+
 const RoundSchema = new mongoose.Schema(
 	{
 		roundNumber: {
@@ -18,16 +19,46 @@ const RoundSchema = new mongoose.Schema(
 			type: String,
 		},
 		startAddress: {
-			type: String,
+			address: {
+				type: String,
+			},
+			lat: {
+				type: Number,
+			},
+			lng: {
+				type: Number,
+			},
 		},
 		lpo: {
-			type: String,
-			required: false,
+			address: {
+				type: String,
+			},
+			lat: {
+				type: Number,
+			},
+			lng: {
+				type: Number,
+			},
 		},
 		relay: {
-			type: String,
-			required: false,
+			address: {
+				type: String,
+			},
+			lat: {
+				type: Number,
+			},
+			lng: {
+				type: Number,
+			},
 		},
+		// lpo: {
+		// 	type: String,
+		// 	required: false,
+		// },
+		// relay: {
+		// 	type: String,
+		// 	required: false,
+		// },
 		postie: {
 			type: mongoose.Types.ObjectId,
 			ref: 'User',
