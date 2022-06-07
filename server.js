@@ -2,6 +2,7 @@ import express from 'express';
 const app = express();
 import dotenv from 'dotenv';
 dotenv.config();
+import cors from 'cors'
 import 'express-async-errors';
 import morgan from 'morgan';
 
@@ -24,7 +25,7 @@ import verifyRole from './middleware/verifyRole.js';
 if (process.env.NODE_ENV !== 'production') {
 	app.use(morgan('dev'));
 }
-
+app.use(cors({ origin: 'https://round-report.netlify.app' }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
