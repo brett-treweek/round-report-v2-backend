@@ -1,7 +1,7 @@
 {
 	"name": "round-report-v2-backend",
 	"version": "1.0.0",
-	"description": "Redesign of Round Report Backend",
+	"description": "Updated Round Report Backend",
 	"main": "server.js",
 	"type": "module",
 	"scripts": {
