@@ -25,7 +25,7 @@ import verifyRole from './middleware/verifyRole.js';
 if (process.env.NODE_ENV !== 'production') {
 	app.use(morgan('dev'));
 }
-app.use(cors({ origin: 'https://round-report.netlify.app' }));
+// app.use(cors({ origin: 'https://round-report.netlify.app' }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
