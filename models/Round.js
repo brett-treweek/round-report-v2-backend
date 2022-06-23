@@ -57,30 +57,15 @@ const RoundSchema = new mongoose.Schema(
 				},
 			},
 		},
-		// lpo: {
-		// 	type: String,
-		// 	required: false,
-		// },
-		// relay: {
-		// 	type: String,
-		// 	required: false,
-		// },
 		postie: {
-			type: mongoose.Types.ObjectId,
-			ref: 'User',
+			type: String,
 		},
-		// lat: {
-		// 	type: Number,
-		// 	required: true,
-		// },
-		// lng: {
-		// 	type: Number,
-		// 	required: true,
-		// },
 		createdBy: {
 			type: mongoose.Types.ObjectId,
 			ref: 'User',
-			// required: [true, 'Please provide user'],
+		},
+		createdByUsername: {
+			type: String,
 		},
 	},
 	{ timestamps: true }

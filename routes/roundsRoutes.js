@@ -4,9 +4,11 @@ import verifyRole from '../middleware/verifyRole.js';
 import authenticateUser from '../middleware/auth.js';
 
 import {
-	getRound
+	getRound,
+	createRound
 } from '../controllers/roundsController.js';
 
+router.route('/').post(createRound)
 router.route('/:id').get(getRound);
 // router
 // 	.route('/:id')
