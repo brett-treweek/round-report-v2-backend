@@ -1,7 +1,7 @@
 import { UnauthenticatedError } from '../errors/index.js';
 import jwt from 'jsonwebtoken';
 
-// Authorizing edit user, hazard routes - checks for valid jwt.
+// Authorizing edit user, hazard and round routes - checks for valid jwt.
 const auth = async (req, res, next) => {
     // authorization could be capitilized or not
 	const authHeader = req.headers.authorization || req.headers.Authorization;

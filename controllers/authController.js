@@ -46,6 +46,8 @@ const login = async (req, res) => {
 		throw new UnauthenticatedError('Invalid Credentials');
 	}
 
+	console.log('User in authController', user, user.role);
+
 	// Checking password is correct with User method comparePassword()
 	const isPasswordCorrect = await user.comparePassword(password);
 	if (!isPasswordCorrect) {
@@ -55,11 +57,18 @@ const login = async (req, res) => {
 	// Getting users hazards and setting them in user object.
 	const userHazards = await Hazard.find({ _id: user.hazards });
 	user.hazards = userHazards;
+
+	// Creating admin boolean to be sent in response and saved in state/localStorage, for conditional rendering of admin button on frontend. Admin role is still verified on server when accessing protected admin routes (ie. clicking admin button or navigating to admin route) to ensure security.
+	let admin = false
+	if (user.role === 1982) {
+		admin = true
+	}
+	
 	// Creating new jwt and setting password and role as undefined for the response- for security.
 	const token = user.createJWT();
 	user.password = undefined;
 	user.role = undefined;
-	res.status(StatusCodes.OK).json({ user, token });
+	res.status(StatusCodes.OK).json({ user, token, admin });
 };
 
 const updateUser = async (req, res) => {

@@ -3,6 +3,7 @@ const router = express.Router()
 import verifyRole from '../middleware/verifyRole.js';
 import authenticateUser from '../middleware/auth.js';
 
+// will use verify role middleware when deleting hazards.
 
 import {
 	createHazard,
